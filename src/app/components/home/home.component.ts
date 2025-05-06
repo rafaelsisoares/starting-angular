@@ -13,4 +13,9 @@ export class HomeComponent {
   num = 1;
   condition = this.num >= 5 ? "Verdadeiro" : "Falso";
   image = "https://www.w3schools.com/w3images/lights.jpg";
+
+  handleClick() {
+    this.num = 5;
+    console.log("Peguei seu click");
+  }
 };
