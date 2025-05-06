@@ -9,4 +9,11 @@
 <img [src]= "image"/> <!--Property bind-->
 <br />
 <button (click)="handleClick()">Click</button> <!--Event bind-->
+<div>
+  <h3>Counter</h3>
+  <button (click)="handleCounterPlus()">+</button>
+  <button (click)="handleCounterMinus()">-</button>
+  <button (click)="resetCounter()">Reset</button>
+<p>{{counter()}}</p>
+</div>
 <app-footer></app-footer>
