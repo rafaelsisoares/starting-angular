@@ -8,5 +8,7 @@ import { FooterComponent } from "../footer/footer.component";
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-
+  title = "Olá Angular";
+  text = "Começando uma nova jornada com Angular";
+  sum = 1 + 1;
 }
