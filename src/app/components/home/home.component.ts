@@ -10,5 +10,6 @@ import { FooterComponent } from "../footer/footer.component";
 export class HomeComponent {
   title = "Olá Angular";
   text = "Começando uma nova jornada com Angular";
-  sum = 1 + 1;
-}
+  num = 1;
+  condition = this.num >= 5 ? "Verdadeiro" : "Falso";
+};
