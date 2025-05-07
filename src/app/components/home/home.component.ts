@@ -1,5 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { FooterComponent } from "../footer/footer.component";
+import { ReportsService } from '../../services/reports.service';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +17,22 @@ export class HomeComponent {
   counter = signal(0); // Signal para contagem
   password = signal("");
   breadIngredients = ["Farinha", "Água", "Sal", "Fermento", "Açúcar", "Óleo"];
+
+  constructor(private service: ReportsService) {
+    // Requisição HTTP
+    this.service.getReports().subscribe({
+      next: (data) => {
+        console.log(data);
+      },
+      error: (error) => {
+        console.error(error.getMessage());
+      },
+      complete: () => {
+        console.log("Consulta finalizada");
+      }
+    });
+  }
+
 
   handleClick() {
     this.num = 5;
