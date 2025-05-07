@@ -13,7 +13,9 @@ export class HomeComponent {
   num = 1;
   condition = this.num >= 5 ? "Verdadeiro" : "Falso";
   image = "https://www.w3schools.com/w3images/lights.jpg";
-  counter = signal(0);
+  counter = signal(0); // Signal para contagem
+  password = signal("");
+  breadIngredients = ["Farinha", "Água", "Sal", "Fermento", "Açúcar", "Óleo"];
 
   handleClick() {
     this.num = 5;
@@ -30,5 +32,10 @@ export class HomeComponent {
 
   resetCounter() {
     this.counter.set(0);
+  }
+
+  handlePassword(event: Event) {
+    const input = event.target as HTMLInputElement;
+    this.password.set(input.value);
   }
 };

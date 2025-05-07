@@ -16,4 +16,26 @@
   <button (click)="resetCounter()">Reset</button>
 <p>{{counter()}}</p>
 </div>
+<div>
+  <h5>Senha</h5>
+  <input type="password" (change)="handlePassword($event)" />
+  <br />
+  <!--Diretiva condicional-->
+  @if(password().length < 8) {
+    <p>Sua senha é muito curta</p>
+  } @else if (password().length === 8) {
+    <p>Sua senha tem o tamanho minimo para ser segura</p>
+  } @else {
+    <p>Sua senha é muito longa</p>
+  }
+</div>
+<div>
+  <h5>Ingredientes para fazer pão</h5>
+  <ul>
+    <!--Diretiva de repetição-->
+    @for(item of breadIngredients; track item) {
+      <li>{{item.toUpperCase()}}</li>
+    }
+  </ul>
+</div>
 <app-footer></app-footer>
