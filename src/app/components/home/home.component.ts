@@ -1,6 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { FooterComponent } from "../footer/footer.component";
 import { ReportsService } from '../../services/reports.service';
+import { IResponse } from '../../interfaces/iresponse';
 
 @Component({
   selector: 'app-home',
@@ -17,15 +18,16 @@ export class HomeComponent {
   counter = signal(0); // Signal para contagem
   password = signal("");
   breadIngredients = ["Farinha", "Água", "Sal", "Fermento", "Açúcar", "Óleo"];
+  reports: IResponse[] = [];
 
   constructor(private service: ReportsService) {
     // Requisição HTTP
     this.service.getReports().subscribe({
       next: (data) => {
-        console.log(data);
+        this.reports = data.map((report: IResponse) => report);
       },
       error: (error) => {
-        console.error(error.getMessage());
+        console.error(error);
       },
       complete: () => {
         console.log("Consulta finalizada");
