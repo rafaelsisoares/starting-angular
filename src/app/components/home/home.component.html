@@ -1,3 +1,64 @@
 <p>home works!</p>
 <br />
+<h1>{{title}}</h1>
+<br />
+{{text}} <!--Interpolação de variaveis-->
+<br />
+{{condition}}
+<br />
+<img [src]= "image"/> <!--Property bind-->
+<br />
+<button (click)="handleClick()">Click</button> <!--Event bind-->
+<div>
+  <h3>Counter</h3>
+  <button (click)="handleCounterPlus()">+</button>
+  <button (click)="handleCounterMinus()">-</button>
+  <button (click)="resetCounter()">Reset</button>
+<p>{{counter()}}</p>
+</div>
+<div>
+  <h5>Senha</h5>
+  <input type="password" (change)="handlePassword($event)" />
+  <br />
+  <!--Diretiva condicional-->
+  @if(password().length < 8) {
+    <p>Sua senha é muito curta</p>
+  } @else if (password().length === 8) {
+    <p>Sua senha tem o tamanho minimo para ser segura</p>
+  } @else {
+    <p>Sua senha é muito longa</p>
+  }
+</div>
+<div>
+  <h5>Ingredientes para fazer pão</h5>
+  <ul>
+    <!--Diretiva de repetição-->
+    @for(item of breadIngredients; track item) {
+      <li>{{item.toUpperCase()}}</li>
+    }
+  </ul>
+</div>
+<br />
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Placa</th>
+        <th>Posição</th>
+        <th>Data</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(report of reports; track report){
+        <tr>
+          <td>{{report.name}}</td>
+          <td>{{report.plate}}</td>
+          <td>{{report.position === "IN" ? "Dentro" : "Fora"}}</td>
+          <td>{{report.date}}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
 <app-footer></app-footer>
